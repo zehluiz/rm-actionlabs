@@ -1,0 +1,125 @@
+/* ============================================================
+   ds-button
+   Geometria CONFIRMADA no Figma via Desktop Bridge:
+     Medium → altura 38 · padding 12×16 · gap 8 · fonte 14 Regular · pill
+     Large  → altura 48 · padding 16×32 · gap 8 · fonte 16 Regular · pill
+
+   ⚠ Inconsistência do arquivo Figma: o componente usa raio "pill"
+     (cornerRadius 100), mas o token radius/component/button = 8.
+     Seguimos o que está desenhado (pill). Definir a fonte da verdade.
+
+   Regra de ouro: ESTADO vence VARIANTE (cor/variante via :where()).
+   ============================================================ */
+
+.ds-button {
+  --_bg: transparent;
+  --_bg-hover: transparent;
+  --_label: var(--color-text-primary);
+  --_border: transparent;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-component-sm); /* 8px (Figma) */
+
+  font-family: var(--font-family-button);
+  font-weight: var(--font-weight-regular); /* Regular (Figma) */
+  line-height: 1;
+  white-space: nowrap;
+
+  border: 1px solid var(--_border);
+  border-radius: var(--radius-full); /* pill (Figma) */
+  background: var(--_bg);
+  color: var(--_label);
+
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+/* ---- Tamanho (sets Medium / Large) ---- */
+.ds-button[data-size='medium'] {
+  min-height: 38px;
+  padding: var(--space-component-md) var(--spacing-16); /* 12 × 16 */
+  font-size: var(--font-size-body-md);                  /* 14 */
+}
+.ds-button[data-size='large'] {
+  min-height: 48px;
+  padding: var(--spacing-16) var(--space-layout-md);    /* 16 × 32 */
+  font-size: var(--font-size-body-lg);                  /* 16 */
+}
+
+.ds-button__icon {
+  font-family: var(--font-family-icon);
+  font-size: 1em;
+  line-height: 0;
+}
+.ds-button--icon-only {
+  aspect-ratio: 1;
+  padding-inline: 0;
+}
+
+/* ============================================================
+   COR x VARIANTE  ->  :where() = especificidade 0
+   ============================================================ */
+:where(.ds-button[data-color='primary'][data-variant='solid']) {
+  --_bg: var(--color-button-primary-bg);
+  --_bg-hover: var(--color-button-primary-bg-hover);
+  --_label: var(--color-button-primary-label);
+  --_border: var(--color-button-primary-border);
+}
+:where(.ds-button[data-color='primary'][data-variant='outline']) {
+  --_bg-hover: var(--color-button-ghost-bg-hover);
+  --_label: var(--color-button-ghost-label);
+  --_border: var(--color-button-ghost-border);
+}
+:where(.ds-button[data-color='primary'][data-variant='text']) {
+  --_bg-hover: var(--color-button-ghost-bg-hover);
+  --_label: var(--color-button-ghost-label);
+}
+:where(.ds-button[data-color='secondary'][data-variant='solid']) {
+  --_bg: var(--color-button-secondary-bg);
+  --_bg-hover: var(--color-button-secondary-bg-hover);
+  --_label: var(--color-button-secondary-label);
+  --_border: var(--color-button-secondary-bg);
+}
+:where(.ds-button[data-color='secondary'][data-variant='outline']) {
+  --_bg-hover: var(--color-surface-hover);
+  --_label: var(--color-button-secondary-bg);
+  --_border: var(--color-button-secondary-bg);
+}
+:where(.ds-button[data-color='secondary'][data-variant='text']) {
+  --_bg-hover: var(--color-surface-hover);
+  --_label: var(--color-button-secondary-bg);
+}
+:where(.ds-button[data-color='danger'][data-variant='solid']) {
+  --_bg: var(--color-button-danger-bg);
+  --_bg-hover: var(--color-button-danger-bg-hover);
+  --_label: var(--color-button-danger-label);
+  --_border: var(--color-button-danger-bg);
+}
+:where(.ds-button[data-color='danger'][data-variant='outline']) {
+  --_bg-hover: var(--color-surface-error);
+  --_label: var(--color-text-error);
+  --_border: var(--color-border-error);
+}
+:where(.ds-button[data-color='danger'][data-variant='text']) {
+  --_bg-hover: var(--color-surface-error);
+  --_label: var(--color-text-error);
+}
+
+/* ============================================================
+   ESTADOS (sempre vencem)
+   ============================================================ */
+.ds-button:hover:not(:disabled) { background: var(--_bg-hover); }
+.ds-button:focus-visible {
+  outline: 2px solid var(--color-border-brand);
+  outline-offset: 2px;
+}
+.ds-button:disabled {
+  cursor: not-allowed;
+  --_bg: var(--color-surface-subtle);
+  --_label: var(--color-text-disabled);
+  --_border: var(--color-border-disabled);
+}
+.ds-button[data-variant='outline']:disabled,
+.ds-button[data-variant='text']:disabled { --_bg: transparent; }

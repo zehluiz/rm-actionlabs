@@ -1,0 +1,28 @@
+/* ============================================================
+   TOKENS  —  ponto de entrada único
+   Ordem importa: primitivos -> semânticos -> escalas.
+   Importe este arquivo uma vez no preview do Storybook
+   e no styles.css da aplicação consumidora.
+   ============================================================ */
+
+@import "./tokens/_primitives.css";
+@import "./tokens/_semantic.css";
+@import "./tokens/_typography.css";
+@import "./tokens/_spacing.css";
+
+/* Base do canvas */
+:root {
+  color-scheme: light;
+}
+[data-theme="dark"] {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body-md);
+  line-height: var(--line-height-body-md);
+  color: var(--color-text-primary);
+  background: var(--color-surface-page);
+}

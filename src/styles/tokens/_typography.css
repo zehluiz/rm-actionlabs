@@ -1,0 +1,108 @@
+/* ============================================================
+   TIPOGRAFIA  —  coleção "Tipografia" (Figma)
+   Família Blinker (texto) + Font Awesome 6 Pro (ícones — NUNCA alterar).
+   Tamanhos e line-heights são responsivos: os 3 modos do Figma
+   (Desktop / Tablet / Mobile) viram media queries.
+   Breakpoints CSS adotados: Tablet <= 1024px, Mobile <= 640px.
+   (No Figma os frames-base eram 1920 / 1024 / 360.)
+   ============================================================ */
+
+:root {
+  /* Famílias */
+  --font-family-display: "Blinker", system-ui, sans-serif;
+  --font-family-heading: "Blinker", system-ui, sans-serif;
+  --font-family-body:    "Blinker", system-ui, sans-serif;
+  --font-family-label:   "Blinker", system-ui, sans-serif;
+  --font-family-button:  "Blinker", system-ui, sans-serif;
+  --font-family-icon:    "Font Awesome 6 Pro"; /* ⚠ NUNCA ALTERAR */
+
+  /* Pesos */
+  --font-weight-regular:  400;
+  --font-weight-medium:   500;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  /* Tamanhos — Desktop (default) */
+  --font-size-body-micro:   9px;
+  --font-size-body-caption: 10px;
+  --font-size-body-xs:      11px;
+  --font-size-body-sm:      12px;
+  --font-size-body-md:      14px;
+  --font-size-body-lg:      16px;
+  --font-size-body-xl:      18px;
+  --font-size-heading-xs:   20px;
+  --font-size-heading-sm:   24px;
+  --font-size-heading-md:   28px;
+  --font-size-heading-lg:   32px;
+  --font-size-heading-xl:   38px;
+  --font-size-heading-2xl:  40px;
+  --font-size-heading-3xl:  48px;
+  --font-size-display-md:   56px;
+  --font-size-display-lg:   60px;
+  --font-size-display-xl:   72px;
+
+  /* Line-heights — Desktop (default) */
+  --line-height-body-micro:   12px;
+  --line-height-body-caption: 14px;
+  --line-height-body-xs:      16px;
+  --line-height-body-sm:      22px;
+  --line-height-body-md:      24px;
+  --line-height-body-xl:      18px;
+  --line-height-heading-xs:   20px;
+  --line-height-heading-sm:   26px;
+  --line-height-heading-md:   28px;
+  --line-height-heading-lg:   38px;
+  --line-height-heading-2xl:  48px;
+  --line-height-heading-3xl:  58px;
+  --line-height-display-lg:   64px;
+  --line-height-display-xl:   72px;
+}
+
+/* ---- Tablet ---- */
+@media (max-width: 1024px) {
+  :root {
+    --font-size-heading-xs:  18px;
+    --font-size-heading-sm:  20px;
+    --font-size-heading-md:  24px;
+    --font-size-heading-lg:  28px;
+    --font-size-heading-xl:  32px;
+    --font-size-heading-2xl: 32px;
+    --font-size-heading-3xl: 40px;
+    --font-size-display-md:  40px;
+    --font-size-display-lg:  48px;
+    --font-size-display-xl:  56px;
+
+    --line-height-heading-sm:  24px;
+    --line-height-heading-lg:  34px;
+    --line-height-heading-3xl: 48px;
+    --line-height-display-lg:  48px;
+    --line-height-display-xl:  64px;
+  }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 640px) {
+  :root {
+    --font-size-body-micro: 11px;
+    --font-size-body-sm:    14px;
+    --font-size-heading-md: 22px;
+    --font-size-heading-lg: 26px;
+    --font-size-heading-xl: 30px;
+    --font-size-heading-3xl: 36px;
+    --font-size-display-md:  32px;
+    --font-size-display-lg:  36px;
+    --font-size-display-xl:  40px;
+
+    --line-height-body-micro:  16px;
+    --line-height-body-sm:     20px;
+    --line-height-body-md:     22px;
+    --line-height-heading-xs:  18px;
+    --line-height-heading-sm:  22px;
+    --line-height-heading-md:  24px;
+    --line-height-heading-lg:  30px;
+    --line-height-heading-2xl: 38px;
+    --line-height-heading-3xl: 38px;
+    --line-height-display-lg:  38px;
+    --line-height-display-xl:  48px;
+  }
+}

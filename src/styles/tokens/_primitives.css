@@ -1,0 +1,70 @@
+/* ============================================================
+   PRIMITIVOS  —  coleção "Primitivos" (Figma)
+   Valores crus. NÃO usar diretamente em componentes.
+   Sempre consumir via tokens semânticos (_semantic.css).
+   Gerado a partir das Variables do Figma — não editar à mão.
+   ============================================================ */
+
+:root {
+  /* Brand */
+  --brand-primary-default: #02395c;
+  --brand-primary-hover:   #084369;
+  --brand-secondary-default: #2aac5e;
+  --brand-secondary-hover:   #008e2b;
+
+  /* Brand / accent */
+  --brand-accent-lime:          #91b508;
+  --brand-accent-orange:        #ff9328;
+  --brand-accent-navy:          #0a4c76;
+  --brand-accent-green-light:   #b0f4cd;
+  --brand-accent-yellow-light:  #ffe9a9;
+  --brand-accent-green-light-2: #f6fcf9;
+  --brand-accent-green-light-3: #f0faf5;
+
+  /* Neutral */
+  --neutral-900: #262626;
+  --neutral-800: #3f3f3f;
+  --neutral-700: #525252;
+  --neutral-600: #666666;
+  --neutral-500: #8f8f8f;
+  --neutral-400: #aeb0b2;
+  --neutral-300: #c3c3c3;
+  --neutral-200: #d8d8d8;
+  --neutral-150: #f4f4f4;
+  --neutral-100: #f7f7f7;
+  --neutral-50:  #fcfcfc;
+  --neutral-0:   #ffffff;
+
+  /* UI / success */
+  --ui-success-default: #008e2b;
+  --ui-success-light:   #c1f7d8;
+  --ui-success-light-2: #f0fdf5;
+  --ui-success-text:    #008e2b;
+
+  /* UI / warning */
+  --ui-warning-default: #ffc727;
+  --ui-warning-light-1: #fff0c8;
+  --ui-warning-light-2: #fffbf0;
+  --ui-warning-dark:    #eaad10;
+  --ui-warning-text:    #7a4a00;
+
+  /* UI / error */
+  --ui-error-default: #e54e4e;
+  --ui-error-light-1: #f6dcdc;
+  --ui-error-light-2: #ffd8d8;
+  --ui-error-light-3: #fff2f2;
+  --ui-error-light-4: #fff8f8;
+  --ui-error-text:    #a32d2d;
+
+  /* UI / info */
+  --ui-info-default: #3a9bd9;
+  --ui-info-light:   #f2faff;
+  --ui-info-light-2: #e0f3fc;
+  --ui-info-dark:    #02395c;
+  --ui-info-text:    #0c4a6e;
+
+  /* Dark backgrounds (primitivos usados só no modo Dark) */
+  --dark-bg-page:     #0f0f0f;
+  --dark-bg-surface:  #1a1a1a;
+  --dark-bg-elevated: #262626;
+}

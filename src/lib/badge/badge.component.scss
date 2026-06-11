@@ -1,0 +1,72 @@
+/* ============================================================
+   ds-badge
+   Geometria confirmada no Figma (via Desktop Bridge):
+   altura 24 · padding 0 12 · pill · gap interno 4 · texto 12px regular
+   bullet 6px · ícone 16px.
+   Cores via tokens color/badge/* (eixo "Color" do Figma).
+   ============================================================ */
+
+.ds-badge {
+  --_bg: var(--color-badge-neutral-bg);
+  --_fg: var(--color-badge-neutral-text);
+
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-component-xs); /* 4px */
+
+  min-height: 24px;
+  padding: 0 var(--spacing-12); /* 0 12px */
+  border-radius: var(--radius-badge); /* pill */
+
+  font-family: var(--font-family-label);
+  font-size: var(--font-size-body-sm); /* 12px */
+  font-weight: var(--font-weight-regular);
+  line-height: 1;
+  white-space: nowrap;
+
+  background: var(--_bg);
+  color: var(--_fg);
+}
+
+.ds-badge__bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: currentColor;
+}
+
+.ds-badge__icon {
+  font-family: var(--font-family-icon);
+  font-size: 16px;
+  line-height: 0;
+}
+
+.ds-badge__label {
+  display: inline-block;
+}
+
+/* ---- Cores (eixo Color do Figma) ---- */
+.ds-badge[data-color='yellow'] {
+  --_bg: var(--color-badge-warning-bg);
+  --_fg: var(--color-badge-warning-text);
+}
+.ds-badge[data-color='green'] {
+  --_bg: var(--color-badge-success-bg);
+  --_fg: var(--color-badge-success-text);
+}
+.ds-badge[data-color='red'] {
+  --_bg: var(--color-badge-error-bg);
+  --_fg: var(--color-badge-error-text);
+}
+.ds-badge[data-color='blue'] {
+  --_bg: var(--color-badge-info-bg);
+  --_fg: var(--color-badge-info-text);
+}
+.ds-badge[data-color='neutral'] {
+  --_bg: var(--color-badge-neutral-bg);
+  --_fg: var(--color-badge-neutral-text);
+}
+.ds-badge[data-color='brand'] {
+  --_bg: var(--color-surface-brand);
+  --_fg: var(--color-text-inverse);
+}

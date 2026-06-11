@@ -1,0 +1,181 @@
+/* ============================================================
+   SEMÂNTICOS  —  coleção "Semânticos" (Figma)
+   Camada de intenção. É ESTA camada que os componentes consomem.
+   Cada token referencia um primitivo (preserva a cadeia de alias
+   do Figma). Modo Light em :root, modo Dark em [data-theme="dark"].
+   ============================================================ */
+
+:root {
+  /* ---- Button / primary ---- */
+  --color-button-primary-bg:        var(--brand-primary-default);
+  --color-button-primary-bg-hover:  var(--brand-primary-hover);
+  --color-button-primary-label:     var(--neutral-0);
+  --color-button-primary-border:    var(--brand-primary-default);
+
+  /* ---- Button / secondary ---- */
+  --color-button-secondary-bg:       var(--brand-secondary-default);
+  --color-button-secondary-bg-hover: var(--brand-secondary-hover);
+  --color-button-secondary-label:    var(--neutral-0);
+
+  /* ---- Button / ghost (text/outline) ---- */
+  --color-button-ghost-bg:        var(--neutral-0);
+  --color-button-ghost-bg-hover:  var(--neutral-50);
+  --color-button-ghost-label:     var(--brand-primary-default);
+  --color-button-ghost-border:    var(--brand-primary-default);
+
+  /* ---- Button / danger ---- */
+  --color-button-danger-bg:        var(--ui-error-default);
+  --color-button-danger-bg-hover:  var(--ui-error-light-1);
+  --color-button-danger-label:     var(--neutral-0);
+
+  /* ---- Text ---- */
+  --color-text-primary:     var(--neutral-900);
+  --color-text-secondary:   var(--neutral-600);
+  --color-text-placeholder: var(--neutral-400);
+  --color-text-disabled:    var(--neutral-300);
+  --color-text-inverse:     var(--neutral-0);
+  --color-text-brand:       var(--brand-primary-default);
+  --color-text-success:     var(--ui-success-default);
+  --color-text-warning:     var(--ui-warning-dark);
+  --color-text-error:       var(--ui-error-default);
+  --color-text-info:        var(--ui-info-default);
+
+  /* ---- Surface ---- */
+  --color-surface-page:     var(--neutral-0);
+  --color-surface-default:  var(--neutral-50);
+  --color-surface-subtle:   var(--neutral-100);
+  --color-surface-elevated: var(--neutral-100);
+  --color-surface-hover:    var(--neutral-100);
+  --color-surface-brand:    var(--brand-primary-default);
+  --color-surface-success:  var(--ui-success-light);
+  --color-surface-warning:  var(--ui-warning-light-1);
+  --color-surface-error:    var(--ui-error-light-3);
+  --color-surface-info:     var(--ui-info-light);
+
+  /* ---- Border ---- */
+  --color-border-default:  var(--neutral-200);
+  --color-border-subtle:   var(--neutral-150);
+  --color-border-strong:   var(--neutral-400);
+  --color-border-brand:    var(--brand-primary-default);
+  --color-border-disabled: var(--neutral-300);
+  --color-border-success:  var(--ui-success-default);
+  --color-border-warning:  var(--ui-warning-default);
+  --color-border-error:    var(--ui-error-default);
+  --color-border-info:     var(--ui-info-default);
+
+  /* ---- Icon ---- */
+  --color-icon-default: var(--neutral-600);
+  --color-icon-subtle:  var(--neutral-400);
+  --color-icon-brand:   var(--brand-primary-default);
+  --color-icon-inverse: var(--neutral-0);
+  --color-icon-success: var(--ui-success-default);
+  --color-icon-warning: var(--ui-warning-dark);
+  --color-icon-error:   var(--ui-error-default);
+  --color-icon-info:    var(--ui-info-default);
+
+  /* ---- Badge ---- */
+  --color-badge-warning-bg:   var(--ui-warning-light-1);
+  --color-badge-warning-text: var(--ui-warning-text);
+  --color-badge-success-bg:   var(--ui-success-light);
+  --color-badge-success-text: var(--ui-success-text);
+  --color-badge-error-bg:     var(--ui-error-light-3);
+  --color-badge-error-text:   var(--ui-error-text);
+  --color-badge-info-bg:      var(--ui-info-light);
+  --color-badge-info-text:    var(--ui-info-text);
+  --color-badge-neutral-bg:   var(--neutral-100);
+  --color-badge-neutral-text: var(--neutral-600);
+
+  /* ---- Feedback / Toast ---- */
+  --color-toast-bg:            var(--neutral-0);
+  --color-toast-border-warning: var(--ui-warning-light-1);
+  --color-toast-border-success: var(--ui-success-light);
+  --color-toast-border-error:   var(--ui-error-light-2);
+  --color-toast-border-info:    var(--ui-info-light);
+  --color-toast-iconbg-warning: var(--ui-warning-light-1);
+  --color-toast-iconbg-success: var(--ui-success-light);
+  --color-toast-iconbg-error:   var(--ui-error-light-2);
+  --color-toast-iconbg-info:    var(--ui-info-light-2);
+  --color-toast-icon-warning:   var(--ui-warning-dark);
+  --color-toast-icon-success:   var(--ui-success-default);
+  --color-toast-icon-error:     var(--ui-error-default);
+  --color-toast-icon-info:      var(--ui-info-dark);
+  --color-toast-text-title:     var(--neutral-800);
+  --color-toast-text-body:      var(--neutral-600);
+  --color-toast-text-close:     var(--neutral-400);
+
+  /* ---- Feedback / Alert ---- */
+  --color-alert-bg-warning:   var(--ui-warning-light-2);
+  --color-alert-bg-success:   var(--ui-success-light-2);
+  --color-alert-bg-error:     var(--ui-error-light-3);
+  --color-alert-bg-info:      var(--ui-info-light);
+  --color-alert-icon-warning: var(--ui-warning-dark);
+  --color-alert-icon-success: var(--ui-success-default);
+  --color-alert-icon-error:   var(--ui-error-default);
+  --color-alert-icon-info:    var(--ui-info-dark);
+  --color-alert-text-title:   var(--neutral-800);
+  --color-alert-text-body:    var(--neutral-600);
+}
+
+/* ============================================================
+   MODO DARK  —  apenas os tokens que mudam de alias no Figma
+   ============================================================ */
+[data-theme="dark"] {
+  /* Button */
+  --color-button-primary-border: var(--brand-primary-hover);
+  --color-button-ghost-bg:       var(--dark-bg-surface);
+  --color-button-ghost-bg-hover: var(--dark-bg-elevated);
+  --color-button-ghost-label:    var(--brand-primary-hover);
+  --color-button-ghost-border:   var(--brand-primary-hover);
+
+  /* Text */
+  --color-text-primary:     var(--neutral-0);
+  --color-text-secondary:   var(--neutral-400);
+  --color-text-placeholder: var(--neutral-600);
+  --color-text-disabled:    var(--neutral-700);
+  --color-text-inverse:     var(--neutral-900);
+  --color-text-brand:       var(--brand-primary-hover);
+  --color-text-warning:     var(--ui-warning-default);
+
+  /* Surface */
+  --color-surface-page:     var(--dark-bg-page);
+  --color-surface-default:  var(--dark-bg-surface);
+  --color-surface-subtle:   var(--dark-bg-elevated);
+  --color-surface-elevated: var(--dark-bg-elevated);
+  --color-surface-hover:    var(--neutral-800);
+  --color-surface-success:  var(--ui-success-default);
+  --color-surface-warning:  var(--ui-warning-dark);
+  --color-surface-error:    var(--ui-error-default);
+  --color-surface-info:     var(--ui-info-default);
+
+  /* Border */
+  --color-border-default:  var(--neutral-700);
+  --color-border-subtle:   var(--neutral-800);
+  --color-border-strong:   var(--neutral-500);
+  --color-border-brand:    var(--brand-primary-hover);
+  --color-border-disabled: var(--neutral-700);
+
+  /* Icon */
+  --color-icon-default: var(--neutral-400);
+  --color-icon-subtle:  var(--neutral-600);
+  --color-icon-brand:   var(--brand-primary-hover);
+  --color-icon-inverse: var(--neutral-900);
+  --color-icon-warning: var(--ui-warning-default);
+
+  /* Badge */
+  --color-badge-warning-bg:   var(--ui-warning-dark);
+  --color-badge-warning-text: var(--ui-warning-light-1);
+  --color-badge-success-bg:   var(--ui-success-default);
+  --color-badge-success-text: var(--ui-success-light);
+  --color-badge-error-bg:     var(--ui-error-default);
+  --color-badge-error-text:   var(--ui-error-light-2);
+  --color-badge-info-bg:      var(--ui-info-dark);
+  --color-badge-info-text:    var(--ui-info-light);
+  --color-badge-neutral-bg:   var(--neutral-700);
+  --color-badge-neutral-text: var(--neutral-200);
+
+  /* Toast / Alert (apenas overrides) */
+  --color-toast-iconbg-error: var(--ui-error-default);
+  --color-toast-iconbg-info:  var(--ui-info-dark);
+  --color-toast-icon-info:    var(--ui-info-light);
+  --color-alert-icon-info:    var(--ui-info-light);
+}
