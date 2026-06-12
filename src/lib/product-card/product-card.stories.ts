@@ -18,16 +18,16 @@ const meta: Meta<ProductCardComponent> = {
   },
   args: {
     title: 'Registro de Máquinas',
-    icon: 'fa-solid fa-tractor',
+    icon: 'fa-light fa-tractor',
     enabled: true,
     enableLabel: 'Habilitar',
     totalLabel: 'Total de pedidos',
     total: 42,
     emptyValue: '--',
     stats: [
-      { label: 'Aguardando', value: 4 },
-      { label: 'Reprovado', value: 2 },
-      { label: 'Validado', value: 36 },
+      { label: 'Aguardando', value: 4, tone: 'warning' },
+      { label: 'Reprovado', value: 2, tone: 'error' },
+      { label: 'Validado', value: 36, tone: 'success' },
     ],
   },
   decorators: [
@@ -52,11 +52,11 @@ export const RegistroDesabilitado: Story = {
 export const TabelaHabilitado: Story = {
   args: {
     title: 'TabelaMaq',
-    icon: 'fa-solid fa-table-list',
+    icon: 'fa-light fa-table-list',
     total: 12,
     stats: [
-      { label: 'Aguardando', value: 5 },
-      { label: 'Concluído', value: 7 },
+      { label: 'Aguardando', value: 5, tone: 'warning' },
+      { label: 'Concluído', value: 7, tone: 'success' },
     ],
   },
 };
@@ -64,12 +64,12 @@ export const TabelaHabilitado: Story = {
 export const TabelaDesabilitado: Story = {
   args: {
     title: 'TabelaMaq',
-    icon: 'fa-solid fa-table-list',
+    icon: 'fa-light fa-table-list',
     enabled: false,
     total: 12,
     stats: [
-      { label: 'Aguardando', value: 5 },
-      { label: 'Concluído', value: 7 },
+      { label: 'Aguardando', value: 5, tone: 'warning' },
+      { label: 'Concluído', value: 7, tone: 'success' },
     ],
   },
 };
@@ -80,50 +80,50 @@ export const ComSelo: Story = {
     title: 'Registro de Máquinas',
     total: 42,
     stats: [
-      { label: 'Aguardando', value: 4 },
-      { label: 'Reprovado', value: 2 },
-      { label: 'Validado', value: 36, badge: '100%' },
+      { label: 'Aguardando', value: 4, tone: 'warning' },
+      { label: 'Reprovado', value: 2, tone: 'error' },
+      { label: 'Validado', value: 36, tone: 'success', badge: '100%' },
     ],
   },
 };
 
-/* ---- Showcase: as 4 variantes empilhadas ---- */
+/* ---- Showcase: as variantes empilhadas ---- */
 export const Showcase: Story = {
   render: () => ({
     template: `
       <div style="display:flex;flex-direction:column;gap:16px;max-width:755px">
         <ds-product-card
           title="Registro de Máquinas"
-          icon="fa-solid fa-tractor"
+          icon="fa-light fa-tractor"
           [enabled]="true"
           [total]="42"
           [stats]="[
-            { label: 'Aguardando', value: 4 },
-            { label: 'Reprovado', value: 2 },
-            { label: 'Validado', value: 36 }
+            { label: 'Aguardando', value: 4, tone: 'warning' },
+            { label: 'Reprovado', value: 2, tone: 'error' },
+            { label: 'Validado', value: 36, tone: 'success' }
           ]"
         ></ds-product-card>
 
         <ds-product-card
           title="Registro de Máquinas"
-          icon="fa-solid fa-tractor"
+          icon="fa-light fa-tractor"
           [enabled]="false"
           [total]="42"
           [stats]="[
-            { label: 'Aguardando', value: 4 },
-            { label: 'Reprovado', value: 2 },
-            { label: 'Validado', value: 36 }
+            { label: 'Aguardando', value: 4, tone: 'warning' },
+            { label: 'Reprovado', value: 2, tone: 'error' },
+            { label: 'Validado', value: 36, tone: 'success' }
           ]"
         ></ds-product-card>
 
         <ds-product-card
           title="TabelaMaq"
-          icon="fa-solid fa-table-list"
+          icon="fa-light fa-table-list"
           [enabled]="true"
           [total]="12"
           [stats]="[
-            { label: 'Aguardando', value: 5 },
-            { label: 'Concluído', value: 7 }
+            { label: 'Aguardando', value: 5, tone: 'warning' },
+            { label: 'Concluído', value: 7, tone: 'success' }
           ]"
         ></ds-product-card>
       </div>
