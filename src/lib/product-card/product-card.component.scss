@@ -1,0 +1,224 @@
+/* ============================================================
+   ds-product-card
+   Espelha o "Card / Produtos" do Figma (Desktop Bridge).
+   Geometria/tokens confirmados:
+     card     -> bg surface/page · borda border/default 1px · radius/md
+                 padding spacing/16 · gap space/component/md
+     header   -> título body-xl semibold + ícone FA 20px · gap spacing/12
+     switch   -> trilho 34x18 radius/lg · botão 10px radius/full neutral/0
+                 ligado = brand/secondary/default · desligado = neutral/300
+                 foco = color/border/info
+     total    -> borda-topo border/default · label body-lg · valor heading-md
+     stats    -> caixa surface/subtle radius/md · número heading-sm · label body-lg
+                 gap entre caixas space/component/2xl
+   Seletores diretos (sem :where) p/ evitar o bug de especificidade.
+   ============================================================ */
+
+.ds-product-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-component-md);
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: var(--spacing-16);
+
+  background: var(--color-surface-page);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-family-body);
+}
+
+/* ---- Cabeçalho ---- */
+.ds-product-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-component-md);
+}
+
+.ds-product-card__title-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  min-width: 0;
+}
+
+.ds-product-card__icon {
+  font-family: var(--font-family-icon);
+  font-size: 20px;
+  line-height: 1;
+  color: var(--color-text-primary);
+}
+
+.ds-product-card__title {
+  font-size: var(--font-size-body-xl);
+  line-height: var(--line-height-body-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.ds-product-card__status {
+  display: flex;
+  align-items: center;
+  gap: var(--space-component-sm);
+  flex-shrink: 0;
+}
+
+/* atalho "Habilitar" (só no estado desabilitado) */
+.ds-product-card__enable {
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  font-family: var(--font-family-button);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--color-text-brand);
+
+  cursor: pointer;
+}
+.ds-product-card__enable:hover {
+  text-decoration: underline;
+}
+.ds-product-card__enable:focus-visible {
+  outline: 2px solid var(--color-border-info);
+  outline-offset: 2px;
+  border-radius: var(--radius-full);
+}
+
+/* ---- Switch ---- */
+.ds-product-card__switch {
+  --_rail: var(--brand-secondary-default);
+
+  position: relative;
+  display: inline-flex;
+  flex-shrink: 0;
+
+  width: 34px;
+  height: 18px;
+  border-radius: var(--radius-lg);
+  background: var(--_rail);
+
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.ds-product-card__switch:focus-visible {
+  outline: 3px solid var(--color-border-info);
+  outline-offset: 2px;
+}
+
+.ds-product-card__switch-knob {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--neutral-0);
+
+  /* ligado: botão à direita (34 - 4 - 10 = 20 => +16 do left:4) */
+  transform: translate(16px, -50%);
+  transition: transform 0.15s ease;
+}
+
+/* desligado */
+.ds-product-card[data-disabled] .ds-product-card__switch {
+  --_rail: var(--neutral-300);
+}
+.ds-product-card[data-disabled] .ds-product-card__switch-knob {
+  transform: translate(0, -50%);
+}
+
+/* ---- Linha de total ---- */
+.ds-product-card__total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-component-2xl);
+
+  padding-top: var(--spacing-8);
+  border-top: 1px solid var(--color-border-default);
+}
+
+.ds-product-card__total-label {
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body-lg);
+  color: var(--color-text-secondary);
+}
+
+.ds-product-card__total-value {
+  font-size: var(--font-size-heading-md);
+  line-height: var(--line-height-heading-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+/* ---- Caixas de status ---- */
+.ds-product-card__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-component-2xl);
+}
+
+.ds-product-card__stat {
+  flex: 1 1 0;
+  min-width: 140px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-component-2xs);
+
+  padding: var(--spacing-8);
+  background: var(--color-surface-subtle);
+  border-radius: var(--radius-md);
+
+  text-align: center;
+}
+
+.ds-product-card__stat-value {
+  font-size: var(--font-size-heading-sm);
+  line-height: var(--line-height-heading-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.ds-product-card__stat-label {
+  font-size: var(--font-size-body-lg);
+  line-height: var(--line-height-body-lg);
+  color: var(--color-text-secondary);
+}
+
+/* valores atenuados quando desabilitado */
+.ds-product-card[data-disabled] .ds-product-card__total-value,
+.ds-product-card[data-disabled] .ds-product-card__stat-value {
+  color: var(--color-text-disabled);
+}
+
+/* ---- Responsivo: empilha as caixas no mobile ---- */
+@media (max-width: 640px) {
+  .ds-product-card__stats {
+    gap: var(--space-component-md);
+  }
+  .ds-product-card__stat {
+    flex-basis: 100%;
+  }
+}
+
+/* ---- Movimento reduzido ---- */
+@media (prefers-reduced-motion: reduce) {
+  .ds-product-card__switch,
+  .ds-product-card__switch-knob {
+    transition: none;
+  }
+}
