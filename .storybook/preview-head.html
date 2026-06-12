@@ -8,10 +8,22 @@
 
 <!--
   Ícones: o DS usa "Font Awesome 6 Pro" (licença paga).
-  Substitua o link abaixo pelo seu kit Pro. Para desenvolvimento,
-  o Free CDN cobre boa parte dos ícones solid/regular:
+  O Storybook público não tem o kit Pro, então mapeamos a família
+  "Font Awesome 6 Pro" para o webfont Free (CDN) só para PREVIEW —
+  assim os ícones do DS renderizam de forma determinística (em solid).
+  Para o peso Light real, troque pelo seu kit Pro (kit.fontawesome.com).
 -->
 <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 />
+<style>
+  @font-face {
+    font-family: "Font Awesome 6 Pro";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: block;
+    src: url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/webfonts/fa-solid-900.woff2")
+      format("woff2");
+  }
+</style>
