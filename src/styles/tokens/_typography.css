@@ -2,9 +2,10 @@
    TIPOGRAFIA  —  coleção "Tipografia" (Figma)
    Família Blinker (texto) + Font Awesome 6 Pro (ícones — NUNCA alterar).
    Tamanhos e line-heights são responsivos: os 3 modos do Figma
-   (Desktop / Tablet / Mobile) viram media queries.
-   Breakpoints CSS adotados: Tablet <= 1024px, Mobile <= 640px.
+   (Desktop / Tablet / Mobile) viram media queries (empilhadas).
+   Breakpoints CSS: Tablet <= 1024px, Mobile <= 640px.
    (No Figma os frames-base eram 1920 / 1024 / 360.)
+   Gerado a partir das Variables do Figma — não editar à mão.
    ============================================================ */
 
 :root {
@@ -14,7 +15,7 @@
   --font-family-body:    "Blinker", system-ui, sans-serif;
   --font-family-label:   "Blinker", system-ui, sans-serif;
   --font-family-button:  "Blinker", system-ui, sans-serif;
-  --font-family-icon:    "Font Awesome 6 Pro"; /* ⚠ NUNCA ALTERAR */
+  --font-family-icon:    "Font Awesome 6 Pro"; /* NUNCA ALTERAR */
 
   /* Pesos */
   --font-weight-regular:  400;
@@ -47,15 +48,17 @@
   --line-height-body-xs:      16px;
   --line-height-body-sm:      22px;
   --line-height-body-md:      24px;
+  --line-height-body-lg:      28px;
   --line-height-body-xl:      18px;
   --line-height-heading-xs:   20px;
   --line-height-heading-sm:   26px;
-  --line-height-heading-md:   28px;
+  --line-height-heading-md:   30px;
   --line-height-heading-lg:   38px;
   --line-height-heading-2xl:  48px;
   --line-height-heading-3xl:  58px;
-  --line-height-display-lg:   64px;
-  --line-height-display-xl:   72px;
+  --line-height-display-md:   64px;
+  --line-height-display-lg:   72px;
+  --line-height-display-xl:   86px;
 }
 
 /* ---- Tablet ---- */
@@ -73,9 +76,11 @@
     --font-size-display-xl:  56px;
 
     --line-height-heading-sm:  24px;
+    --line-height-heading-md:  26px;
     --line-height-heading-lg:  34px;
     --line-height-heading-3xl: 48px;
-    --line-height-display-lg:  48px;
+    --line-height-display-md:  48px;
+    --line-height-display-lg:  64px;
     --line-height-display-xl:  64px;
   }
 }
@@ -96,13 +101,15 @@
     --line-height-body-micro:  16px;
     --line-height-body-sm:     20px;
     --line-height-body-md:     22px;
+    --line-height-body-lg:     24px;
     --line-height-heading-xs:  18px;
     --line-height-heading-sm:  22px;
     --line-height-heading-md:  24px;
     --line-height-heading-lg:  30px;
     --line-height-heading-2xl: 38px;
     --line-height-heading-3xl: 38px;
-    --line-height-display-lg:  38px;
+    --line-height-display-md:  38px;
+    --line-height-display-lg:  48px;
     --line-height-display-xl:  48px;
   }
 }
