@@ -50,6 +50,11 @@
   font-size: 20px;
   line-height: 1;
   color: var(--brand-secondary-default);
+
+  /* <i> é itálico por padrão; sem isso o glifo sai torto/sintetizado */
+  font-style: normal;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 .ds-product-card__title {
