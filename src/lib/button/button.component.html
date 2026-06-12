@@ -1,26 +1,11 @@
 <button
   class="ds-button"
-  [class.ds-button--icon-only]="isIconOnly"
-  [attr.data-variant]="variant"
-  [attr.data-color]="color"
+  [attr.data-type]="type"
   [attr.data-size]="size"
   [disabled]="disabled"
-  [type]="type"
+  [type]="htmlType"
 >
-  <i
-    *ngIf="iconBefore"
-    class="ds-button__icon"
-    [ngClass]="iconBefore"
-    aria-hidden="true"
-  ></i>
-
-  <span *ngIf="label" class="ds-button__label">{{ label }}</span>
-  <ng-content></ng-content>
-
-  <i
-    *ngIf="iconAfter"
-    class="ds-button__icon"
-    [ngClass]="iconAfter"
-    aria-hidden="true"
-  ></i>
+  <i *ngIf="iconBefore" class="ds-button__icon" [ngClass]="iconBefore" aria-hidden="true"></i>
+  <span class="ds-button__label">{{ label }}</span>
+  <i *ngIf="iconAfter" class="ds-button__icon" [ngClass]="iconAfter" aria-hidden="true"></i>
 </button>
