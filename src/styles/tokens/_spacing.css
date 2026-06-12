@@ -22,13 +22,13 @@
   --spacing-96: 96px;
 
   /* ---- Spacing de componente (semântico) ---- */
-  --space-component-2xs: 6px;  /* gap entre ícone e label em botões */
-  --space-component-xs:  4px;
-  --space-component-xxs: 10px; /* padding interno de células, inputs e componentes menores */
+  --space-component-2xs: 4px;
+  --space-component-xs:  6px;  /* gap ícone↔label em botões (ex-2xs) */
   --space-component-sm:  8px;
-  --space-component-md:  12px;
-  --space-component-lg:  16px;
-  --space-component-xl:  24px;
+  --space-component-md:  10px; /* padding interno de células/inputs (ex-xxs) */
+  --space-component-lg:  12px;
+  --space-component-xl:  16px;
+  --space-component-2xl: 24px;
 
   /* ---- Spacing de layout (semântico) ---- */
   --space-layout-xs:  16px;
