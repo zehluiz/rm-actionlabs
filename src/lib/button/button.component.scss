@@ -3,7 +3,7 @@
      Type : primary · secondary · ghost · danger · text
      Size : small (h32) · medium (h40) · large (h48)  — altura FIXA
      State: Default · :hover · :focus-visible · :disabled
-   Regra: ESTADO vence TIPO (cor do tipo via :where() = especificidade 0).
+   Regra: ESTADO vence TIPO (estados via ordem de origem / propriedade direta).
    ============================================================ */
 .ds-button {
   --_bg: transparent;
@@ -44,33 +44,33 @@
 .ds-button__label { line-height: 1; }
 
 /* ============================================================
-   TIPOS (cor) — :where() para os estados sempre vencerem
+   TIPOS (cor) — especificidade normal; estados vencem por ordem/propriedade
    ============================================================ */
-:where(.ds-button[data-type='primary']) {
+.ds-button[data-type='primary'] {
   --_bg: var(--color-button-primary-bg);
   --_bg-hover: var(--color-button-primary-bg-hover);
   --_label: var(--color-button-primary-label);
   --_border: var(--color-button-primary-border);
 }
-:where(.ds-button[data-type='secondary']) {
+.ds-button[data-type='secondary'] {
   --_bg: var(--color-button-secondary-bg);
   --_bg-hover: var(--color-button-secondary-bg-hover);
   --_label: var(--color-button-secondary-label);
   --_border: var(--color-button-secondary-bg);
 }
-:where(.ds-button[data-type='ghost']) {
+.ds-button[data-type='ghost'] {
   --_bg: var(--color-button-ghost-bg);
   --_bg-hover: var(--color-button-ghost-bg-hover);
   --_label: var(--color-button-ghost-label);
   --_border: var(--color-button-ghost-border);
 }
-:where(.ds-button[data-type='danger']) {
+.ds-button[data-type='danger'] {
   --_bg: var(--color-button-danger-bg);
   --_bg-hover: var(--color-button-danger-bg-hover);
   --_label: var(--color-button-danger-label);
   --_border: var(--color-button-danger-bg);
 }
-:where(.ds-button[data-type='text']) {
+.ds-button[data-type='text'] {
   --_bg: transparent;
   --_bg-hover: var(--color-button-ghost-bg-hover);
   --_label: var(--color-button-ghost-label);
