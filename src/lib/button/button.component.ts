@@ -1,27 +1,17 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-/**
- * Variante visual (eixo "State" do Figma, parte estrutural):
- * - solid   -> State=Default
- * - outline -> State=Outline
- * - text    -> State=Text
- * Os estados de interação (Hover, Focused, Disable) NÃO são props:
- * são tratados via :hover / :focus-visible / [disabled] no SCSS,
- * conforme o cssMapping retornado pelo Figma.
- */
-export type ButtonVariant = 'solid' | 'outline' | 'text';
+/** Tipo (hierarquia visual) — espelha o eixo "Type" do Figma e os tokens color/button/{type}/*. */
+export type ButtonType = 'primary' | 'secondary' | 'ghost' | 'danger' | 'text';
+
+/** Tamanho — eixo "Size" do Figma. Alturas fixas: small 32 · medium 40 · large 48. */
+export type ButtonSize = 'small' | 'medium' | 'large';
 
 /**
- * Cor — inferida dos grupos de token color/button/{primary,secondary,danger}.
- * ⚠ O component set "Medium"/"Large" do Figma NÃO expõe cor como eixo de
- * variante. Confirmar com o time se cor é trocada por token/instância.
+ * ds-button — botão com rótulo de texto.
+ * Estados Hover/Focused são tratados em CSS (:hover / :focus-visible);
+ * Disabled via [disabled]. Para botões só-ícone, use <ds-icon-button>.
  */
-export type ButtonColor = 'primary' | 'secondary' | 'danger';
-
-/** Tamanho — sets "Medium" e "Large" do Figma. */
-export type ButtonSize = 'medium' | 'large';
-
 @Component({
   selector: 'ds-button',
   standalone: true,
@@ -30,23 +20,16 @@ export type ButtonSize = 'medium' | 'large';
   styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
-  @Input() variant: ButtonVariant = 'solid';
-  @Input() color: ButtonColor = 'primary';
+  @Input() type: ButtonType = 'primary';
   @Input() size: ButtonSize = 'medium';
+  @Input() label = 'Button';
 
-  /** Texto do botão (Figma: Label=True). Vazio => botão icon-only. */
-  @Input() label = '';
-
-  /** Classe Font Awesome do ícone à esquerda (Figma: Icon before=True). */
+  /** Classe Font Awesome do ícone à esquerda (ex.: 'fa-regular fa-user'). */
   @Input() iconBefore?: string;
 
-  /** Classe Font Awesome do ícone à direita (Figma: Icon after=True). */
+  /** Classe Font Awesome do ícone à direita (ex.: 'fa-solid fa-chevron-down'). */
   @Input() iconAfter?: string;
 
   @Input() disabled = false;
-  @Input() type: 'button' | 'submit' | 'reset' = 'button';
-
-  get isIconOnly(): boolean {
-    return !this.label && (!!this.iconBefore || !!this.iconAfter);
-  }
+  @Input() htmlType: 'button' | 'submit' | 'reset' = 'button';
 }
