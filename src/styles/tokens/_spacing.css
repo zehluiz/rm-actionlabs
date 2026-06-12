@@ -56,3 +56,14 @@
   --radius-badge:   9999px;
   --radius-tooltip: 4px;
 }
+
+/* ============================================================
+   Sizing de componente — Button / Icon Button
+   Figma: size/component/button-* (alturas fixas) e radius/component/button (pill)
+   ============================================================ */
+:root {
+  --size-component-button-sm: 32px;
+  --size-component-button-md: 40px;
+  --size-component-button-lg: 48px;
+  --radius-component-button: var(--radius-full); /* pill (decisão: botões sempre pill) */
+}
