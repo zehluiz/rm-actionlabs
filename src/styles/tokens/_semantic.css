@@ -179,3 +179,6 @@
   --color-toast-icon-info:    var(--ui-info-light);
   --color-alert-icon-info:    var(--ui-info-light);
 }
+
+/* Cor de foco (anel :focus-visible) — Figma usa info azul */
+:root { --color-border-focus: var(--ui-info-default); }
