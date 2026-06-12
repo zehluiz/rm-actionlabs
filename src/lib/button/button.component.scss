@@ -11,7 +11,7 @@
   --_label: var(--color-text-primary);
   --_border: transparent;
   --_h: var(--size-component-button-md);
-  --_pad-x: var(--space-component-lg);
+  --_pad-x: var(--space-component-xl);
   --_font: var(--font-size-body-md);
 
   display: inline-flex;
@@ -36,8 +36,8 @@
 }
 
 /* ---- Tamanho: altura + padding-x + fonte ---- */
-.ds-button[data-size='small']  { --_h: var(--size-component-button-sm); --_pad-x: var(--space-component-md); --_font: var(--font-size-body-sm); }
-.ds-button[data-size='medium'] { --_h: var(--size-component-button-md); --_pad-x: var(--space-component-lg); --_font: var(--font-size-body-md); }
+.ds-button[data-size='small']  { --_h: var(--size-component-button-sm); --_pad-x: var(--space-component-lg); --_font: var(--font-size-body-sm); }
+.ds-button[data-size='medium'] { --_h: var(--size-component-button-md); --_pad-x: var(--space-component-xl); --_font: var(--font-size-body-md); }
 .ds-button[data-size='large']  { --_h: var(--size-component-button-lg); --_pad-x: var(--space-layout-md);    --_font: var(--font-size-body-lg); }
 
 .ds-button__icon  { font-family: var(--font-family-icon); font-size: 1em; line-height: 0; }
