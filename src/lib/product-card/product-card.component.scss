@@ -49,14 +49,14 @@
   font-family: var(--font-family-icon);
   font-size: 20px;
   line-height: 1;
-  color: var(--color-text-primary);
+  color: var(--brand-secondary-default);
 }
 
 .ds-product-card__title {
   font-size: var(--font-size-body-xl);
   line-height: var(--line-height-body-xl);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  color: var(--brand-secondary-default);
 
   white-space: nowrap;
   overflow: hidden;
@@ -153,14 +153,14 @@
 .ds-product-card__total-label {
   font-size: var(--font-size-body-lg);
   line-height: var(--line-height-body-lg);
-  color: var(--color-text-secondary);
+  color: var(--color-text-brand);
 }
 
 .ds-product-card__total-value {
   font-size: var(--font-size-heading-md);
   line-height: var(--line-height-heading-md);
   font-weight: var(--font-weight-semibold);
-  color: var(--color-text-primary);
+  color: var(--color-text-brand);
 }
 
 /* ---- Caixas de status ---- */
@@ -192,6 +192,13 @@
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
 }
+
+/* cor do número por status (Figma) */
+.ds-product-card__stat-value[data-tone='brand']   { color: var(--color-text-brand); }
+.ds-product-card__stat-value[data-tone='success'] { color: var(--color-text-success); }
+.ds-product-card__stat-value[data-tone='warning'] { color: var(--color-text-warning); }
+.ds-product-card__stat-value[data-tone='error']   { color: var(--color-text-error); }
+.ds-product-card__stat-value[data-tone='neutral'] { color: var(--color-text-primary); }
 
 .ds-product-card__stat-label {
   font-size: var(--font-size-body-lg);
