@@ -1,0 +1,86 @@
+/* ============================================================
+   ds-icon-button  —  botão SÓ-ÍCONE (quadrado, circular)
+     Type : primary · secondary · ghost · danger · text  (mesmos tokens do Button)
+     Size : small 32×32 · medium 40×40 · large 48×48
+   Mesmo recipe de estados do Button (hover/focus/disabled).
+   ============================================================ */
+.ds-icon-button {
+  --_bg: transparent;
+  --_bg-hover: transparent;
+  --_label: var(--color-text-primary);
+  --_border: transparent;
+  --_size: var(--size-component-button-md);
+  --_icon: 20px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--_size);
+  height: var(--_size);
+  padding: 0;
+
+  border: 1px solid var(--_border);
+  border-radius: var(--radius-component-button);   /* pill -> círculo num quadrado */
+  background: var(--_bg);
+  color: var(--_label);
+  cursor: pointer;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
+}
+
+/* ---- Tamanho: lado do quadrado + tamanho do ícone ---- */
+.ds-icon-button[data-size='small']  { --_size: var(--size-component-button-sm); --_icon: 16px; }
+.ds-icon-button[data-size='medium'] { --_size: var(--size-component-button-md); --_icon: 20px; }
+.ds-icon-button[data-size='large']  { --_size: var(--size-component-button-lg); --_icon: 24px; }
+
+.ds-icon-button__icon { font-family: var(--font-family-icon); font-size: var(--_icon); line-height: 0; }
+
+/* ============================================================
+   TIPOS (cor) — :where() para os estados vencerem
+   ============================================================ */
+:where(.ds-icon-button[data-type='primary']) {
+  --_bg: var(--color-button-primary-bg);
+  --_bg-hover: var(--color-button-primary-bg-hover);
+  --_label: var(--color-button-primary-label);
+  --_border: var(--color-button-primary-border);
+}
+:where(.ds-icon-button[data-type='secondary']) {
+  --_bg: var(--color-button-secondary-bg);
+  --_bg-hover: var(--color-button-secondary-bg-hover);
+  --_label: var(--color-button-secondary-label);
+  --_border: var(--color-button-secondary-bg);
+}
+:where(.ds-icon-button[data-type='ghost']) {
+  --_bg: var(--color-button-ghost-bg);
+  --_bg-hover: var(--color-button-ghost-bg-hover);
+  --_label: var(--color-button-ghost-label);
+  --_border: var(--color-button-ghost-border);
+}
+:where(.ds-icon-button[data-type='danger']) {
+  --_bg: var(--color-button-danger-bg);
+  --_bg-hover: var(--color-button-danger-bg-hover);
+  --_label: var(--color-button-danger-label);
+  --_border: var(--color-button-danger-bg);
+}
+:where(.ds-icon-button[data-type='text']) {
+  --_bg: transparent;
+  --_bg-hover: var(--color-button-ghost-bg-hover);
+  --_label: var(--color-button-ghost-label);
+  --_border: transparent;
+}
+
+/* ============================================================
+   ESTADOS (sempre vencem)
+   ============================================================ */
+.ds-icon-button:hover:not(:disabled) { background: var(--_bg-hover); }
+.ds-icon-button:focus-visible {
+  outline: 3px solid var(--color-border-focus);
+  outline-offset: 1px;
+}
+.ds-icon-button:disabled {
+  cursor: not-allowed;
+  --_bg: var(--color-surface-elevated);
+  --_label: var(--color-text-disabled);
+  --_border: var(--color-surface-elevated);
+}
+.ds-icon-button[data-type='ghost']:disabled { --_bg: transparent; --_border: var(--color-border-disabled); }
+.ds-icon-button[data-type='text']:disabled  { --_bg: transparent; --_border: transparent; }
