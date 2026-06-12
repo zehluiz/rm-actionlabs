@@ -1,0 +1,61 @@
+<article class="ds-product-card" [attr.data-disabled]="!enabled ? '' : null">
+  <!-- Cabeçalho: título + status -->
+  <header class="ds-product-card__header">
+    <div class="ds-product-card__title-group">
+      <i
+        *ngIf="icon"
+        class="ds-product-card__icon"
+        [ngClass]="icon"
+        aria-hidden="true"
+      ></i>
+      <span class="ds-product-card__title">{{ title }}</span>
+    </div>
+
+    <div class="ds-product-card__status">
+      <button
+        *ngIf="!enabled"
+        type="button"
+        class="ds-product-card__enable"
+        (click)="onToggle()"
+      >
+        {{ enableLabel }}
+      </button>
+
+      <span
+        class="ds-product-card__switch"
+        role="switch"
+        [attr.aria-checked]="enabled"
+        [attr.aria-label]="title"
+        tabindex="0"
+        (click)="onToggle()"
+        (keydown)="onToggleKey($event)"
+      >
+        <span class="ds-product-card__switch-knob" aria-hidden="true"></span>
+      </span>
+    </div>
+  </header>
+
+  <!-- Linha de total -->
+  <div class="ds-product-card__total">
+    <span class="ds-product-card__total-label">{{ totalLabel }}</span>
+    <span class="ds-product-card__total-value">{{ displayTotal }}</span>
+  </div>
+
+  <!-- Caixas de status -->
+  <div class="ds-product-card__stats">
+    <div class="ds-product-card__stat" *ngFor="let stat of stats">
+      <span class="ds-product-card__stat-value">{{ displayValue(stat.value) }}</span>
+
+      <ds-badge
+        *ngIf="stat.badge && enabled"
+        class="ds-product-card__stat-badge"
+        color="green"
+        element="icon"
+        icon="fa-solid fa-check"
+        [label]="stat.badge"
+      ></ds-badge>
+
+      <span class="ds-product-card__stat-label">{{ stat.label }}</span>
+    </div>
+  </div>
+</article>
