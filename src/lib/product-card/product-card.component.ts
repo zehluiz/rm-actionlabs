@@ -3,14 +3,23 @@ import { CommonModule } from '@angular/common';
 import { BadgeComponent } from '../badge/badge.component';
 
 /**
+ * Cor (tom) do número da caixa — espelha as cores semânticas do Figma:
+ *   warning -> Aguardando | error -> Reprovado | success -> Validado/Concluído
+ *   brand   -> azul-marinho | neutral -> texto padrão
+ */
+export type ProductCardTone = 'neutral' | 'brand' | 'success' | 'warning' | 'error';
+
+/**
  * Uma caixa de status no rodapé do card (Figma: "Heading and number").
  *  - value: número grande (ex.: 42). Vira `emptyValue` quando o card está desabilitado.
  *  - label: rótulo abaixo do número (ex.: "Aguardando").
+ *  - tone: cor do número por status (ex.: 'warning'). Padrão: neutral.
  *  - badge: texto opcional do selo verde (ex.: "100%"). Só aparece com o card habilitado.
  */
 export interface ProductCardStat {
   label: string;
   value: string | number;
+  tone?: ProductCardTone;
   badge?: string;
 }
 
