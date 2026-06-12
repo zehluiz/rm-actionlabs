@@ -44,7 +44,7 @@
   <!-- Caixas de status -->
   <div class="ds-product-card__stats">
     <div class="ds-product-card__stat" *ngFor="let stat of stats">
-      <span class="ds-product-card__stat-value">{{ displayValue(stat.value) }}</span>
+      <span class="ds-product-card__stat-value" [attr.data-tone]="stat.tone || null">{{ displayValue(stat.value) }}</span>
 
       <ds-badge
         *ngIf="stat.badge && enabled"
